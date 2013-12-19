@@ -1,0 +1,43 @@
+<h1>Admin#index</h1>
+<p>Find me in app/views/admin/index.html.erb</p>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Group</th>
+    <th>
+    	<tr>
+    		<th>Item</th>
+    		<th>Price</th>
+    		<th>Finished</th>
+    	</tr>
+	</th>
+   </tr>
+<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email %></td>
+		<td><center><%= user.group %></center></td>
+			<% @totalPrice = 0 %>
+			<% @products.each do |prod| %>
+				<% if prod.high_bidder == user.id %>
+					<% @totalPrice = @totalPrice + prod.current_price %>
+
+				<tr>
+					<td><pre><%= prod.name %></pre></td>
+					<td><pre><%= prod.current_price %></pre></td>
+					<td>
+						<% if prod.end_time - Time.now > 0 %>
+							<pre>True</pre>
+						<% else %>
+							<pre>False</pre>
+						<% end %>
+					</td>
+				</tr>
+				<% end %>
+				
+			<% end %>
+			<td>
+				<pre>Total Price: <%= @totalPrice %></pre>
+			</td> 
+		</td>
+	</tr>
+<% end %>

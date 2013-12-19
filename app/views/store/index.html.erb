@@ -1,0 +1,45 @@
+
+<pre> You have $<%= sprintf('%.2f',@money_left) =%> left</pre>
+
+
+<div style="float:left; width: 50%; margin-right: 10%; margin-left: 10%">
+<% @listProducts.each do |product| %>
+	<div class="entry" style="padding:5%;">
+		<%= image_tag(product.image) %> 
+		<h3><%= product.name %></h3>
+		<p><%= sanitize(product.description) %></p>
+		<div class="price_line">
+			Original Price: <span class="price"><%= product.original_price %></span>
+			Current Price: <span class="price"><%= sprintf('%.2f',product.current_price) %></span>
+		</div>
+		<p>Item Closes On <%= product.end_time %></p>
+		<% if product.end_time - Time.now > 0 %>
+			<%= button_to ("Place $#{sprintf('%.2f', product.current_price * 0.1)} bid"), bids_path(product_id: product) %>
+		<% else %>
+			<pre> This Item Is Closed </pre>
+		<% end %>
+		<% if (product.high_bidder == @user.id) %>
+			<pre> You are winning this item </pre>
+		<% end %>
+	</div>
+<% end %>
+</div>
+<div style="float:right; width: 20%; margin-right: 5%; margin-top: 0%">
+	<p>
+	Beta v0.7
+	</p>
+	<p>
+	Questions?<br/>
+	Email your implementing <br/>
+	hex administrator at <br/>
+	implementinghex@gmail.com
+	</p>
+	<p>
+	Known Bugs
+	<ul>
+		<li>Authorize issue on first bid, bid again and it works</li>
+		<li>Cannot order users by group in admin panel </li>
+		<li>Anyone can create a new users, but with no permissions</li>
+		<li>Pagination needs to be implemented in the store page</li>
+	</p>
+</div>

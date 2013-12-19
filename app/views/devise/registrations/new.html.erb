@@ -1,0 +1,43 @@
+<h2>Sign up</h2>
+<script type="text/javascript">
+  function isValid(){
+    var password = document.getElementById('adminpassword').value;
+    //Have a look, but please please dont touch
+    if (password == "admin")
+    {
+      document.getElementById('pass').style.visibility = 'visible';
+    }
+  }
+  </script>
+  <br />
+
+  Admin Password:
+  <input type="password" id="adminpassword" name="adminpassword">
+  <input type="button" value="Open" onclick="isValid();">
+  <br />
+<div id="pass" style = "visibility:hidden;" >
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label :money_left %><br />
+  <%= f.text_field :money_left %></div>
+
+  <div><%= f.label :role %><br/>
+  <%= f.text_field :role %></div>
+
+    <div><%= f.label :group %><br/>
+  <%= f.text_field :group %></div>
+  
+  <%= f.submit "Sign up" %>
+<% end %>
+</div>
+<%= render "devise/shared/links" %>

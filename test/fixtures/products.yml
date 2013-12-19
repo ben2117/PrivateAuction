@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  original_price: 9.99
+  current_price: 9.99
+  image: MyString
+  description: MyText
+  end_time: 2013-09-08 22:31:34
+
+two:
+  name: MyString
+  original_price: 9.99
+  current_price: 9.99
+  image: MyString
+  description: MyText
+  end_time: 2013-09-08 22:31:34

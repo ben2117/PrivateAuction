@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Private Auction</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<!-- START_HIGHLIGHT -->
+<body class='<%= controller.controller_name %>'>
+
+<!-- END_HIGHLIGHT -->
+
+<center><h1>Private Auction Site</h1></center>
+<br><br><br>
+<div style="text-align:right; padding:2%">
+	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+</div>
+
+<div>
+	<% if notice %>
+		<p id="notice">
+		<%= notice %></p> 
+	<% end %>
+
+
+<%= yield %>
+
+</body>
+</div>
+</html>
