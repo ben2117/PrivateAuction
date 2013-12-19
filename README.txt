@@ -1,3 +1,3 @@
 Private Auction site written in ruby on rails
 
-Very Incomplete
+Core functionality is there but still very incomplete
